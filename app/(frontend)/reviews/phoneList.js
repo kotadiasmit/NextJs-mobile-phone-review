@@ -37,7 +37,20 @@ const phoneList = [
     cameraRating: "4.2",
     rating: "4",
     review:
-      "This phone comes with a 80 Watt. Takes less than an hour for 0 to 100 %.",
+      "This phone comes with a 80 Watt. Takes less than an hour for 0 to 100 percent.",
+  },
+  {
+    id: "4",
+    userName: "Raj",
+    company: "OnePlus",
+    model: "CE 3",
+    price: "16000 Rs.",
+    battery: "4000 mAh",
+    ram: "6 GB",
+    rom: "128GB",
+    cameraRating: "4",
+    rating: "4.2",
+    review: "This phone comes with a 80 Watt.",
   },
 ];
 export default phoneList;

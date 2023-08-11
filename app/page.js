@@ -27,7 +27,7 @@ export default function Home() {
             their ideal device.
           </p>
           <p className="mt-1 font-light">
-            screen Let&apos;s create a space where technology enthusiasts can
+            Screen Let&apos;s create a space where technology enthusiasts can
             come together, learn from one another, and celebrate the wonderful
             world of mobile phones. Your favorite device could be the key to
             someone else&apos;s smartphone happiness!
@@ -51,7 +51,7 @@ export default function Home() {
 
       <div className="grid lg:text-left mt-7">
         <Link
-          href="/reviews"
+          href="/add-review"
           className="group px-5 py-3 transition-colors rounded-lg border border-gray-300 bg-gray-100 dark:border-neutral-700 dark:bg-neutral-700/30 shadow-md shadow-gray-500 hover:shadow-blue-600 active:shadow-inner active:shadow-blue-600"
         >
           <h3 className="mb-1 font-semibold">
