@@ -1,21 +1,30 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import phoneList from "./phoneList";
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import PhoneCard from "./PhoneCard";
 import { getAllReviews } from "../utils/apis";
+import PhoneCard from "./PhoneCard";
 import Loading from "@/loading";
+import NotFound from "@/not-found";
+import phoneList from "./phoneList";
 
 const Reviews = () => {
-  const [phoneReviews, setPhoneReviews] = useState([]);
+  const [phoneReviews, setPhoneReviews] = useState({
+    result: [],
+    success: true,
+    isLoading: true,
+  });
+  const [isDeleted, setIsDeleted] = useState(false);
   useEffect(() => {
-    const data = async () => {
-      const response = await getAllReviews();
-      const { result, success } = response;
-      setPhoneReviews([...result]);
-    };
     data();
-  }, []);
+  }, [isDeleted]);
+
+  const data = async () => {
+    const response = await getAllReviews();
+    const { result, success } = response;
+    setPhoneReviews({ result: [...result], success, isLoading: false });
+    isDeleted && setIsDeleted(false);
+  };
+
   return (
     <div className="min-h-[calc(100vh-56px)] flex flex-col items-center p-5">
       <h3 className=" text-xl font-bold my-5 text-center">
@@ -35,12 +44,24 @@ const Reviews = () => {
           Craft a review that highlights your mobile phone.
         </p>
       </Link>
-      {phoneReviews.length ? (
-        <ul className="px-3 grid max-[655px]:grid-cols-1 grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
-          {phoneReviews.map((eachPhone) => (
-            <PhoneCard key={eachPhone._id} phoneDetails={eachPhone} />
-          ))}
-        </ul>
+      {!phoneReviews.isLoading ? (
+        phoneReviews.success ? (
+          phoneReviews.result.length ? (
+            <ul className="px-3 grid max-[655px]:grid-cols-1 grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3">
+              {phoneReviews.result.map((eachPhone) => (
+                <PhoneCard
+                  key={eachPhone._id}
+                  phoneDetails={eachPhone}
+                  setIsDeleted={setIsDeleted}
+                />
+              ))}
+            </ul>
+          ) : (
+            <h2 className="mt-4 font-bold text-xl">No Reviews Found</h2>
+          )
+        ) : (
+          <NotFound />
+        )
       ) : (
         <Loading />
       )}

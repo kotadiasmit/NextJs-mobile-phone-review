@@ -1,8 +1,8 @@
 import { useRouter } from "next/navigation";
-import React from "react";
+import { ToastContainer, toast } from "react-toastify";
 import { deleteReview } from "../utils/apis";
 
-const PhoneCard = ({ phoneDetails }) => {
+const PhoneCard = ({ phoneDetails, setIsDeleted }) => {
   const router = useRouter();
   const {
     _id,
@@ -22,6 +22,10 @@ const PhoneCard = ({ phoneDetails }) => {
   };
   const DeleteReview = async () => {
     const response = await deleteReview(_id);
+    toast(response.result, {
+      autoClose: 2000,
+    });
+    setIsDeleted(true);
   };
   return (
     <li className="relative h-[350px] w-[289px] rounded-md border border-gray-500 p-2">
@@ -69,6 +73,7 @@ const PhoneCard = ({ phoneDetails }) => {
         >
           Delete Review
         </button>
+        <ToastContainer />
       </div>
     </li>
   );

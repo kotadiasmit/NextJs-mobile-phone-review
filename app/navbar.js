@@ -1,8 +1,7 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
-import React from "react";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 const Navbar = () => {
   const pathname = usePathname();
   const isActive = (href) => (pathname === href ? true : false);
@@ -26,6 +25,7 @@ const Navbar = () => {
             isActive("/reviews") && "text-blue-500"
           }`}
           href="/reviews"
+          scroll={false}
         >
           Reviews
         </Link>

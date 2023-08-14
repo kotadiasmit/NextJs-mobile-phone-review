@@ -23,7 +23,7 @@ const ReviewForm = ({ initialState }) => {
       !isUpdate && setReviewObj(initialState);
       setTimeout(() => {
         setSuccessMsg({ msg: "", success: false });
-      }, 10000);
+      }, 5000);
     }
   };
   return (

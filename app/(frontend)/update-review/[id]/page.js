@@ -1,7 +1,7 @@
 "use client";
+import { useEffect, useState } from "react";
 import ReviewForm from "@/(frontend)/Form/reviewForm";
 import { getSingleReview } from "@/(frontend)/utils/apis";
-import React, { useEffect, useState } from "react";
 import NotFound from "../../../not-found";
 import Loading from "@/loading";
 
@@ -20,7 +20,7 @@ const UpdateReview = ({ params }) => {
     };
     data();
   }, []);
-  console.log(phoneReview.result.length);
+
   return (
     <div>
       {!phoneReview.isLoading ? (

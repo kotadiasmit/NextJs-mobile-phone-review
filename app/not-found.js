@@ -1,12 +1,10 @@
 "use client";
-import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
-import React from "react";
+import Image from "next/image";
 
 const NotFound = () => {
   const route = useRouter();
   const pathname = usePathname();
-  console.log(pathname);
   return (
     <div className=" h-[calc(100vh-56px)] flex flex-col justify-center items-center">
       <Image

@@ -1,6 +1,7 @@
-import Navbar from "./navbar";
-import "./globals.css";
 import { Inter } from "next/font/google";
+import Navbar from "./navbar";
+import "react-toastify/dist/ReactToastify.css";
+import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
 

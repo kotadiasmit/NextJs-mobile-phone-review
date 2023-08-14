@@ -2,7 +2,7 @@ import axios from "axios";
 
 const url = "http://localhost:3000";
 
-const getAllReviews = async () => {
+const getAllReviews = async (setPhoneReviews) => {
   const response = await axios
     .get(`${url}/api/review`)
     .then(({ data, status }) => {
@@ -17,7 +17,7 @@ const getAllReviews = async () => {
   return response;
 };
 
-const addReview = async (reviewObj, setSuccessMsg) => {
+const addReview = async (reviewObj) => {
   const phoneReview = JSON.stringify(reviewObj);
 
   const response = await axios
