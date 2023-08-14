@@ -8,8 +8,7 @@ export async function GET(req) {
   const data = await PhoneReview.find();
   console.log(data);
   try {
-    console.log(123);
-    return NextResponse.json({ result: data, success: true }, { status: 201 });
+    return NextResponse.json({ result: data, success: true }, { status: 200 });
   } catch {
     return NextResponse.json({ result: err, success: false }, { status: 404 });
   }

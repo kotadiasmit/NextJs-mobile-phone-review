@@ -2,6 +2,9 @@ import mongoose from "mongoose";
 
 const Schema = mongoose.Schema;
 const ReviewSchema = new Schema({
+  id: {
+    type: String,
+  },
   userName: {
     type: String,
     required: true,

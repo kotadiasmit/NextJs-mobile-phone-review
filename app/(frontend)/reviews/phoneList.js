@@ -1,6 +1,6 @@
 const phoneList = [
   {
-    id: "1",
+    _id: "1",
     userName: "Smit",
     company: "Samsung",
     model: "Galaxy A-30s",
@@ -13,7 +13,7 @@ const phoneList = [
     review: "",
   },
   {
-    id: "2",
+    _id: "2",
     userName: "Smit",
     company: "iPhone",
     model: "iPhone 14",
@@ -26,7 +26,7 @@ const phoneList = [
     review: "I loved it.",
   },
   {
-    id: "3",
+    _id: "3",
     userName: "meet",
     company: "OnePlus",
     model: "Nord CE 3",
@@ -40,7 +40,7 @@ const phoneList = [
       "This phone comes with a 80 Watt. Takes less than an hour for 0 to 100 percent.",
   },
   {
-    id: "4",
+    _id: "4",
     userName: "Raj",
     company: "OnePlus",
     model: "CE 3",

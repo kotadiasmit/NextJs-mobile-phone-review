@@ -1,8 +1,11 @@
+import { useRouter } from "next/navigation";
 import React from "react";
+import { deleteReview } from "../utils/apis";
 
 const PhoneCard = ({ phoneDetails }) => {
+  const router = useRouter();
   const {
-    id,
+    _id,
     userName,
     company,
     model,
@@ -14,8 +17,14 @@ const PhoneCard = ({ phoneDetails }) => {
     rating,
     review,
   } = phoneDetails;
+  const UpdateReview = () => {
+    router.push(`/update-review/${_id}`);
+  };
+  const DeleteReview = async () => {
+    const response = await deleteReview(_id);
+  };
   return (
-    <li className="relative h-80 w-[289px] rounded-md border border-gray-500 p-2">
+    <li className="relative h-[350px] w-[289px] rounded-md border border-gray-500 p-2">
       <h2 className="text-center text-lg font-bold">{company}</h2>
       <h4 className="text-center font-semibold mb-1">{model}</h4>
       <div className="flex">
@@ -47,6 +56,20 @@ const PhoneCard = ({ phoneDetails }) => {
         <p className="h-16 w-[calc(100%-8rem)] overflow-auto">{review}</p>
       </div>
       <p className="absolute bottom-0 right-0 font-medium text-gray-500 p-2">{`~ By ${userName}`}</p>
+      <div className="flex justify-around ">
+        <button
+          onClick={UpdateReview}
+          className="mt-3 text-sm font-semibold border rounded-md px-1 py-1 text-white bg-blue-800 active:bg-blue-600"
+        >
+          Update Review
+        </button>
+        <button
+          onClick={DeleteReview}
+          className="mt-3 text-sm font-semibold border rounded-md px-1 py-1 text-white bg-blue-800 active:bg-blue-600"
+        >
+          Delete Review
+        </button>
+      </div>
     </li>
   );
 };
